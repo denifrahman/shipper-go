@@ -669,12 +669,12 @@ func (r DetailOrderV3) ToDetailOrder() DetailOrder {
 			OrderID:  r.Data.OrderId,
 			UniqueID: r.Data.OrderId,
 			TrackStatus: trackStatus{
-				ID:          0,
+				ID:          val.LogisticStatus.Code,
 				Name:        val.LogisticStatus.Name,
 				Description: val.LogisticStatus.Description,
 			},
 			InternalStatus: trackStatus{
-				ID:          0,
+				ID:          val.ShipperStatus.Code,
 				Name:        val.ShipperStatus.Name,
 				Description: val.ShipperStatus.Description,
 			},

@@ -215,14 +215,14 @@ func TestGetOrderDetail(t *testing.T) {
 	//	t.Error(err.Error())
 	//}
 
-	detailOrder, err := GetOrderDetail("22BW62DM62Y5E")
+	detailOrder, err := GetOrderDetail("22BYDD7VGDDJK")
 
 	if err != nil {
 		t.Error(err.Error())
 	}
 
 	s, _ := json.MarshalIndent(detailOrder, "", "\t")
-
+	fmt.Println(detailOrder.Data.Order.Tracking)
 	fmt.Println("Order Detail:")
 	fmt.Println(string(s))
 }

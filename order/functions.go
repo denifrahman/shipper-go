@@ -141,7 +141,8 @@ func GetOrderDetailWithContext(ctx context.Context, orderID string) (DetailOrder
 		HTTPMethod: "GET",
 		Endpoint:   endpoint,
 	}, &responseStruct)
-
+	d, _ := json.Marshal(responseStruct)
+	fmt.Println(string(d))
 	return responseStruct.ToDetailOrder(), err
 }
 
