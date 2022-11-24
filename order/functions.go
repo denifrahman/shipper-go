@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 
 	"github.com/denifrahman/shipper-go"
@@ -80,7 +79,7 @@ func CreateDomesticOrderWithContext(ctx context.Context, params *DomesticOrderPa
 	var endpoint = shipper.Conf.BaseURL + "/order"
 	var responseStruct = DomesticOrderV3{}
 	var JSONParams, errEncode = json.Marshal(params.ToDomesticOrderParams())
-	fmt.Println(string(JSONParams))
+
 	if errEncode != nil {
 		log.Fatalln(errEncode.Error())
 	}
