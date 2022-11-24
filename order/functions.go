@@ -166,34 +166,3 @@ func GetTrackingIDWithContext(ctx context.Context, orderID string) (DomesticOrde
 
 	return responseStruct, err
 }
-
-//// UpdateOrder updates specific created order.
-//func UpdateOrder(orderID string, params *UpdateOrderParams) (UpdatedOrder, error) {
-//	return UpdateOrderWithContext(context.Background(), orderID, params)
-//}
-//
-//// UpdateOrderWithContext updates specific created order with context.
-//func UpdateOrderWithContext(ctx context.Context, orderID string, params *UpdateOrderParams) (UpdatedOrder, error) {
-//	var errValidation = validation.Struct(params)
-//
-//	if errValidation != nil {
-//		log.Fatalln(errValidation.Error())
-//	}
-//
-//	var endpoint = shipper.Conf.BaseURL + "/orders/" + orderID
-//	var responseStruct = UpdatedOrder{}
-//	var JSONParams, errEncode = json.Marshal(params)
-//
-//	if errEncode != nil {
-//		log.Fatalln(errEncode.Error())
-//	}
-//
-//	var err = shipper.SendRequest(&shipper.RequestParameters{
-//		Ctx:            ctx,
-//		HTTPMethod:     "PUT",
-//		Endpoint:       endpoint,
-//		AdditionalBody: bytes.NewBuffer(JSONParams),
-//	}, &responseStruct)
-//
-//	return responseStruct, err
-//}
