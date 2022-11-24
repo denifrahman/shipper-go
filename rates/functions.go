@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 
 	"github.com/denifrahman/shipper-go"
@@ -29,7 +30,6 @@ func GetDomesticRatesWithContext(ctx context.Context, params *DomesticRatesParam
 	var endpoint = shipper.Conf.BaseURL + "/pricing/domestic"
 	var responseStruct = DomesticRatesV3{}
 	var additionalQueries map[string]interface{}
-
 	tempJSON, _ := json.Marshal(params.ToDomesticRatesParamsV3())
 	json.Unmarshal(tempJSON, &additionalQueries)
 	var err = shipper.SendRequest(&shipper.RequestParameters{
@@ -38,6 +38,8 @@ func GetDomesticRatesWithContext(ctx context.Context, params *DomesticRatesParam
 		Endpoint:       endpoint,
 		AdditionalBody: bytes.NewBuffer(tempJSON),
 	}, &responseStruct)
+	f, _ := json.Marshal(responseStruct)
+	fmt.Println(string(f))
 	return responseStruct.ToDomesticRates(), err
 }
 
