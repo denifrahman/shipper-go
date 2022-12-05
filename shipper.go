@@ -21,6 +21,6 @@ func (c *Configuration) SetAPIKey(token string) *Configuration {
 // SetProductionMode sets the API base URL to production.
 func (c *Configuration) SetProductionMode(productionMode bool) {
 	if productionMode {
-		c.BaseURL = "https://api.shipper.id/prod/public/v1"
+		c.BaseURL = "https://merchant-api.shipper.id/v3"
 	}
 }
