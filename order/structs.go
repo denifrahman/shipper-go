@@ -247,7 +247,7 @@ func (r DomesticOrderParams) ToDomesticOrderParams() DomesticOrderParamsV3 {
 			PhoneNumber string `json:"phone_number"`
 		}{
 			Name:        r.ConsigneeName,
-			PhoneNumber: r.ConsignerPhoneNumber,
+			PhoneNumber: r.ConsigneePhoneNumber,
 		},
 		Consigner: struct {
 			Name        string `json:"name"`
